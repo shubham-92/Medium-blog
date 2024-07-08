@@ -1,7 +1,7 @@
 import { Appbar } from "../components/Appbar.jsx";
 import { BlogCard } from "../components/BlogCard.jsx";
-// import { BlogSkeleton } from "../components/BlogSkeleton";
-// import { useBlogs } from "../hooks";
+import { BlogSkeleton } from "../components/BlogSkeleton";
+import { useBlogs } from "../hooks/index.js";
 
 export const Blogs = () => {
   const { loading, blogs } = useBlogs();
@@ -12,11 +12,11 @@ export const Blogs = () => {
         <Appbar />
         <div className="flex justify-center">
           <div>
-            {/* <BlogSkeleton />
             <BlogSkeleton />
             <BlogSkeleton />
             <BlogSkeleton />
-            <BlogSkeleton /> */}
+            <BlogSkeleton />
+            <BlogSkeleton />
           </div>
         </div>
       </div>
