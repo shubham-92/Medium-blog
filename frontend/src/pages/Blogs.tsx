@@ -1,6 +1,6 @@
 import { Appbar } from "../components/Appbar.jsx";
 import { BlogCard } from "../components/BlogCard.jsx";
-import { BlogSkeleton } from "../components/BlogSkeleton";
+import { BlogSkeleton } from "../components/BlogSkeleton.jsx";
 import { useBlogs } from "../hooks/index.js";
 
 export const Blogs = () => {

@@ -1,6 +1,15 @@
 import { Blog } from "../hooks/index.js";
-import { Appbar } from "./Appbar";
-import { Avatar } from "./BlogCard";
+import { Appbar } from "./Appbar.js";
+import { Avatar } from "./BlogCard.js";
+
+const formatDate = (dateString: string) => {
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+};
 
 export const FullBlog = ({ blog }: { blog: Blog }) => {
   return (
@@ -10,7 +19,9 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
         <div className="grid grid-cols-12 px-10 w-full pt-200 max-w-screen-xl pt-12">
           <div className="col-span-8">
             <div className="text-5xl font-extrabold">{blog.title}</div>
-            <div className="text-slate-500 pt-2">Post on 2nd December 2023</div>
+            <div className="text-slate-500 pt-2">
+              Posted on {formatDate(blog.publishedDate)}
+            </div>
             <div className="pt-4">{blog.content}</div>
           </div>
           <div className="col-span-4">
