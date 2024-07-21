@@ -23,7 +23,7 @@ export const Blog = () => {
       </div>
     );
   }
-  console.log("data", blog);
+
   return (
     <div>
       <FullBlog blog={blog} />

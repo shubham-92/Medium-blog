@@ -8,7 +8,7 @@ const formatDate = (dateString: string) => {
     month: "long",
     day: "numeric",
   };
-  console.log("Published Date:", dateString);
+
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
