@@ -38,7 +38,7 @@ export const Publish = () => {
                 },
                 {
                   headers: {
-                    Authorization: localStorage.getItem("token"),
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
                   },
                 }
               );

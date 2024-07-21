@@ -6,6 +6,8 @@ import { useBlogs } from "../hooks/index.js";
 export const Blogs = () => {
   const { loading, blogs } = useBlogs();
 
+  console.log("Blogs data:", blogs);
+
   if (loading) {
     return (
       <div>
@@ -36,15 +38,20 @@ export const Blogs = () => {
       <Appbar />
       <div className="flex justify-center">
         <div>
-          {blogs.map((blog) => (
-            <BlogCard
-              id={blog.id}
-              authorName={blog.author.name || "Anonymous"}
-              title={blog.title}
-              content={blog.content}
-              publishedDate={formatDate(blog.publishedDate)}
-            />
-          ))}
+          {blogs && blogs.length > 0 ? (
+            blogs.map((blog) => (
+              <BlogCard
+                key={blog.id}
+                id={blog.id}
+                authorName={blog.author.name || "Anonymous"}
+                title={blog.title}
+                content={blog.content}
+                publishedDate={formatDate(blog.publishedDate)}
+              />
+            ))
+          ) : (
+            <div>No blogs available</div>
+          )}
         </div>
       </div>
     </div>

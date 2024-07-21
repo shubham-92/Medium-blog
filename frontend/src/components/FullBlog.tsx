@@ -8,6 +8,7 @@ const formatDate = (dateString: string) => {
     month: "long",
     day: "numeric",
   };
+  console.log("Published Date:", dateString);
   return new Date(dateString).toLocaleDateString(undefined, options);
 };
 
@@ -35,8 +36,8 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
                   {blog.author.name || "Anonymous"}
                 </div>
                 <div className="pt-2 text-slate-500">
-                  Random catch phrase about the author's ability to grab the
-                  user's attention
+                  {/* Random catch phrase about the author's ability to grab the
+                  user's attention */}
                 </div>
               </div>
             </div>

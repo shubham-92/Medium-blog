@@ -3,13 +3,13 @@ import axios from "axios";
 import { BACKEND_URL } from "../config.js";
 
 export interface Blog {
-  content: string;
-  title: string;
   id: number;
-  publishedDate: string;
   author: {
     name: string | null;
   };
+  publishedDate: string;
+  content: string;
+  title: string;
 }
 
 export const useBlog = ({ id }: { id: string }) => {
@@ -18,6 +18,7 @@ export const useBlog = ({ id }: { id: string }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    // console.log(token);
 
     if (!token) {
       console.error("No token found");
@@ -32,7 +33,8 @@ export const useBlog = ({ id }: { id: string }) => {
         },
       })
       .then((response) => {
-        setBlog(response.data.blog);
+        console.log("Blog response:", response.data);
+        setBlog(response.data.post);
         setLoading(false);
       })
       .catch((error) => {
@@ -70,7 +72,8 @@ export const useBlogs = () => {
         },
       })
       .then((response) => {
-        setBlogs(response.data.blogs);
+        console.log("Blogs response:", response.data);
+        setBlogs(response.data.posts);
         setLoading(false);
       })
       .catch((error) => {
